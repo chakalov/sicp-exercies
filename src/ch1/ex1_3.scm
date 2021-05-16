@@ -1,0 +1,23 @@
+(define (sum-of-two-larger a b c)
+    (define (square x) (* x x))
+    (define (sum-of-squares x y) (+ (square x) (square y)))
+
+    (if (< a b)
+        (if (< a c)
+            (sum-of-squares b c)
+            (sum-of-squares b a)
+        )
+        (if (< b c)
+            (sum-of-squares a c)
+            (sum-of-squares a b)
+        )
+    )
+)
+
+(sum-of-two-larger 1 3 4)
+(sum-of-two-larger 1 4 3)
+(sum-of-two-larger 3 1 4)
+(sum-of-two-larger 3 4 1)
+(sum-of-two-larger 4 1 3)
+(sum-of-two-larger 4 3 1)
+; 25
